@@ -1,5 +1,4 @@
 import pygame
-import renpy
 
 # Initialize Pygame
 pygame.init()
