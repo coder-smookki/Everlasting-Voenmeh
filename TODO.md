@@ -1,0 +1,4 @@
+- [x] Create .vscode/settings.json with "python.analysis.extraPaths": ["./py_src"] to configure Pylance for pygame recognition
+- Demonstrate Ren'Py is working by running help command
+- Create a script to import renpy
+- Run the sample Ren'Py project
