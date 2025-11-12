@@ -39,8 +39,10 @@ label start:
 
     menu:
         "choose"
+
         "choice 1":
-            e "1"
+            e "go to home"
+            jump home
         "choice 2":
             e "2"
         "choice 3":
@@ -57,5 +59,6 @@ label start:
     return
 
 label home:
-
+    scene bg home
+    "you went home"
     return
