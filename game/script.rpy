@@ -5,6 +5,8 @@
 
 define e = Character("gay")
 
+
+/home/candy/Documents/game/voenmeh/game/images
 screen framebutton(_xalign,_yalign,_text,_jump):
     frame:
         xpadding 30
@@ -35,17 +37,17 @@ label start:
     # images directory to show it.
 
     scene bg room
+    default dr Drawable("images/gay.png",(500,500))
 
-
+    $ renpy.show(a.path,[Position(xypos[0],xypos[1])])
     # Position gay.png at coordinates 1300, 800
     show gay at Position(xpos=1300, ypos=800)
-
+    
     #call screen framebutton(0.8,0.2,"идти домой","home")
-    show screen image_button("images/button_idle.png","images/button_hover.png",0.2,0.2,Jump("home"))
+    
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
-
 
     # These display lines of dialogue.
 
