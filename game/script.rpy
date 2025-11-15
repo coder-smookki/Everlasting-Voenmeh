@@ -1,8 +1,12 @@
-﻿# The script of the game goes in this file.
+﻿
+define e = Character('Эйлин', color="#c8ffc8")
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
+# Вместо использования оператора image можете просто
+# складывать все ваши файлы изображений в папку images.
+# Например, сцену bg room можно вызвать файлом "bg room.png",
+# а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
 
+<<<<<<< HEAD
 define e = Character("gay")
 
 
@@ -72,6 +76,19 @@ label mathexam:
     show text "{color=#000000}lim x->inf (x + 1/x)^x =" as q2:
         xpos 900
         ypos 330
+=======
+# Игра начинается здесь:
+label start:
+
+    scene bg room
+
+    show eileen happy
+
+
+    e "Вы создали новую игру Ren'Py."
+
+    e "Добавьте сюжет, изображения и музыку и отправьте её в мир!"
+>>>>>>> origin/master
 
     $ answer1 = renpy.input("{color=#FFFFFF}2+2=")
     if answer1.strip() == "4":
@@ -90,6 +107,9 @@ label mathexam:
         jump failedmathexam
     "hello"
     return
+<<<<<<< HEAD
 
 label failedmathexam:
     return
+=======
+>>>>>>> origin/master
