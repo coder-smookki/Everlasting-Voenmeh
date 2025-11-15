@@ -26,17 +26,17 @@ define config.check_conflicting_properties = True
 ## Цвета текста в интерфейсе.
 
 ## Акцентный цвет используется в заголовках и подчёркнутых текстах.
-define gui.accent_color = '#00a589'
-
+#define gui.accent_color = '#00a589'
+define gui.accent_color = '#0edfc3'
 ## Цвет, используемый в текстовой кнопке, когда она не выбрана и не наведена.
 define gui.idle_color = '#ADD8E6'
 
 ## Small_color используется в маленьком тексте, который должен быть ярче/
 ## темнее, для того, чтобы выделяться.
-define gui.idle_small_color = '#ffee03'
+define gui.idle_small_color = '#EABF64'
 
 ## Цвет, используемых в кнопках и панелях, когда они наведены.
-define gui.hover_color = '#f0ff19'
+define gui.hover_color = '#EABF64'
 
 ## Цвет, используемый текстовой кнопкой, когда она выбрана, но не наведена.
 ## Кнопка может быть выбрана, если это текущий экран или текущее значение
