@@ -857,15 +857,14 @@ label mathexam:
         
     "количество правильных ответов: [correct_answers_count]"
     "это тебе не отчёты писать"
-    "end"
-    "end"
+    " "
     return
 
 init:
     $ timer_range = 0
     $ timer_jump = 0
 
-image clock = "images/objects/clock.png"
+image clock = "images/objects/clock.png" 
 
 transform alpha_dissolve:
     alpha 0.0
@@ -874,21 +873,36 @@ transform alpha_dissolve:
         linear 0.5 alpha 0
     # This is to fade the bar in and out, and is only required once in your script
 
+
+
+screen my_bar_screen():
+    frame:
+        xalign 0.5
+        yalign 0.1
+        bar value VariableValue("my_value", 100) style "my_bar_style"
+
 screen countdown:
     timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01), false=[Hide('countdown'), Jump(timer_jump)])
-    bar value time range timer_range xalign 0.1225 yalign 0.5 xysize (40,350)  bar_vertical True at alpha_dissolve # This is the timer bar.
+    bar value time range timer_range xalign 0.11 yalign 0.70 xysize (100,350) bar_vertical True at alpha_dissolve # This is the timer bar.
 
-label menu1:
-    $ time = 5
-    $ timer_range = 5
-    $ timer_jump = 'menu1_slow'
-    show clock:
+#xalign 0.1225 yalign 0.65
+
+label game2:
+    $ time = 10
+    $ timer_range = 10
+    $ timer_jump = 'capybaraincorrect'
+
+    show screen countdown zorder 0
+
+    show clock zorder 1:
         xalign 0.0
         yalign 0.0
-    show screen countdown zorder -1 
+        
     menu:
+        "1. Что такое программа, алгоритм и язык программирования?" 
+
         "Choice 1":
-            hide screen countdown
+            hide screen capybaraincorrect
             "You chose 'Choice 1'"
             jump menu1_end
         "Choice 2":
@@ -896,9 +910,13 @@ label menu1:
             "You chose 'Choice 2'"
             jump menu1_end
    
+
+label capybaraincorrect:
+    "ты завилил тест"
 label menu1_slow:
     "You didn't choose anything."
     
+
 label menu1_end:
     "Anyway, let's do something else."
 
