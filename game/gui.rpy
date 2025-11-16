@@ -48,8 +48,8 @@ define gui.insensitive_color = '#8888887f'
 
 ## Цвета, используемые для частей панелей, которые не заполняются. Они
 ## используются не напрямую, а только при воссоздании файлов изображений.
-define gui.muted_color = '#285100'
-define gui.hover_muted_color = '#647a00'
+define gui.muted_color = '##626dd4'
+define gui.hover_muted_color = '#626dd4'
 
 ## Цвета, используемые в тексте диалогов и выборов.
 define gui.text_color = '#ffffff'

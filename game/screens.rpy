@@ -348,7 +348,7 @@ screen navigation():
             ## версии.
             frame:
                 padding (20, 10, 20, 10)
-                textbutton _(" Выход") action Quit(confirm=not main_menu)
+                textbutton _(" Выход") action Quit()
 
 
 style navigation_button is gui_button

@@ -51,4 +51,5 @@ label main_game:
     hide gg  # скрываем ГГ
     f "Я читал, что здесь происходили странные вещи..."
     
+    show mathexam()
     return
