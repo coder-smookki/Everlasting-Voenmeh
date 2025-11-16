@@ -295,7 +295,7 @@ style quick_button_text:
 screen navigation():
     vbox:
         style_prefix "navigation"
-
+        
         xpos gui.navigation_xpos
         yalign 0.5
 
@@ -312,7 +312,7 @@ screen navigation():
                 padding (20, 10, 20, 10)
                 textbutton _(" История  ") action ShowMenu("history") 
             frame:
-
+                padding (20, 10, 20, 10)
                 textbutton _(" Сохранить") action ShowMenu("save") 
         frame:
             padding (20, 10, 20, 10)
