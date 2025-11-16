@@ -32,7 +32,7 @@ label start:
     play movie "images/video/intro.webm"
     # $ renpy.pause(47.0, hard=False)
     stop movie fadeout 1.0
-    jump mathexam
+    jump menu1
 
 label main_game:
     scene bg classroom
@@ -53,16 +53,23 @@ label main_game:
 
     return
 
+
+
+
+
+
+
+
+
+
 image notebook = "images/objects/notebook.png" 
 
 style booktext:
     size 50
     color"#000000"
-
 style limittext:
     size 25
     color"#000000"
-
 
 default strq1 = "2+2 * 2 = "
 default strq2 = "4! + 1 = "
@@ -199,6 +206,51 @@ label mathexam:
         ypos yfirst + 4*yshift  
         
     "количество правильных ответов: [correct_answers_count]"
+    "это тебе не отчёты писать"
     "end"
     "end"
     return
+
+init:
+    $ timer_range = 0
+    $ timer_jump = 0
+
+image clock = "images/objects/clock.png"
+
+transform alpha_dissolve:
+    alpha 0.0
+    linear 0.5 alpha 1.0
+    on hide:
+        linear 0.5 alpha 0
+    # This is to fade the bar in and out, and is only required once in your script
+
+screen countdown:
+    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01), false=[Hide('countdown'), Jump(timer_jump)])
+    bar value time range timer_range xalign 0.1225 yalign 0.5 xysize (40,350)  bar_vertical True at alpha_dissolve # This is the timer bar.
+
+label menu1:
+    $ time = 5
+    $ timer_range = 5
+    $ timer_jump = 'menu1_slow'
+    show clock:
+        xalign 0.0
+        yalign 0.0
+    show screen countdown zorder -1 
+    menu:
+        "Choice 1":
+            hide screen countdown
+            "You chose 'Choice 1'"
+            jump menu1_end
+        "Choice 2":
+            hide screen countdown
+            "You chose 'Choice 2'"
+            jump menu1_end
+   
+label menu1_slow:
+    "You didn't choose anything."
+    
+label menu1_end:
+    "Anyway, let's do something else."
+
+label questionscapybara:
+    "end"
