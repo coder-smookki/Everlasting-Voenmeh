@@ -26,22 +26,22 @@ define config.check_conflicting_properties = True
 ## Цвета текста в интерфейсе.
 
 ## Акцентный цвет используется в заголовках и подчёркнутых текстах.
-define gui.accent_color = '#66cc00'
-
+#define gui.accent_color = '#00a589'
+define gui.accent_color = '#ffffff'
 ## Цвет, используемый в текстовой кнопке, когда она не выбрана и не наведена.
-define gui.idle_color = '#888888'
-
+#define gui.idle_color = '#ADD8E6'
+define gui.idle_color = '#626dd4'
 ## Small_color используется в маленьком тексте, который должен быть ярче/
 ## темнее, для того, чтобы выделяться.
-define gui.idle_small_color = '#aaaaaa'
+define gui.idle_small_color = '#EABF64'
 
 ## Цвет, используемых в кнопках и панелях, когда они наведены.
-define gui.hover_color = '#a3e066'
+define gui.hover_color = '#EABF64'
 
 ## Цвет, используемый текстовой кнопкой, когда она выбрана, но не наведена.
 ## Кнопка может быть выбрана, если это текущий экран или текущее значение
 ## настройки.
-define gui.selected_color = '#ffffff'
+define gui.selected_color = '#EABF64'
 
 ## Цвет, используемый текстовой кнопкой, когда она не может быть выбрана.
 define gui.insensitive_color = '#8888887f'
@@ -49,7 +49,7 @@ define gui.insensitive_color = '#8888887f'
 ## Цвета, используемые для частей панелей, которые не заполняются. Они
 ## используются не напрямую, а только при воссоздании файлов изображений.
 define gui.muted_color = '#285100'
-define gui.hover_muted_color = '#3d7a00'
+define gui.hover_muted_color = '#647a00'
 
 ## Цвета, используемые в тексте диалогов и выборов.
 define gui.text_color = '#ffffff'
