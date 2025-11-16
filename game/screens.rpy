@@ -299,8 +299,8 @@ screen navigation():
         xpos gui.navigation_xpos
         yalign 0.5
 
-        spacing gui.navigation_spacing
-        
+        #spacing gui.navigation_spacing
+        spacing 20
 
         if main_menu:
             frame:
