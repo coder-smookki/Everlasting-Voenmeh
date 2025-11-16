@@ -549,7 +549,7 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
     textbutton _("Вернуться"):
         style "return_button"
 
-        action Return()
+        action [Return()]
 
     label title
 
