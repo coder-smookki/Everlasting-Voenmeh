@@ -300,7 +300,7 @@ screen navigation():
         yalign 0.5
 
         #spacing gui.navigation_spacing
-        spacing 20
+        spacing 14
 
         if main_menu:
             frame:
