@@ -370,7 +370,6 @@ transform text_hovered:
     linear 0.3 zoom 1.1 yalign 0.15 yoffset -30  # увеличивается и поднимается вверх
 
 screen main_menu():
-
     # Фон
     add "gui/main_menu.png"
 
@@ -383,7 +382,7 @@ screen main_menu():
     # Кнопки
     imagebutton:
         idle im.Scale("gui/main_idle1.png", 500, 90)
-        hover im.Scale("gui/main_hover1.png", 525, 95)
+        hover im.Scale("gui/main_hover1.png", 550, 120)
         action Start()
         xalign 0.15
         yalign 0.35
@@ -392,7 +391,7 @@ screen main_menu():
 
     imagebutton:
         idle im.Scale("gui/main_idle3.png", 500, 90)
-        hover im.Scale("gui/main_hover3.png", 525, 95)
+        hover im.Scale("gui/main_hover3.png", 550, 120)
         action ShowMenu("load")
         xalign 0.15
         yalign 0.46
@@ -401,7 +400,7 @@ screen main_menu():
 
     imagebutton:
         idle im.Scale("gui/main_idle2.png", 500, 90)
-        hover im.Scale("gui/main_hover2.png", 525, 95)
+        hover im.Scale("gui/main_hover2.png", 550, 120)
         action ShowMenu("preferences")
         xalign 0.15
         yalign 0.57
@@ -410,7 +409,7 @@ screen main_menu():
 
     imagebutton:
         idle im.Scale("gui/main_idle4.png", 500, 90)
-        hover im.Scale("gui/main_hover4.png", 525, 95)
+        hover im.Scale("gui/main_hover4.png", 550, 120)
         action ShowMenu("about")
         xalign 0.15
         yalign 0.68
@@ -419,8 +418,8 @@ screen main_menu():
 
     imagebutton:
         idle im.Scale("gui/main_idle5.png", 500, 90)
-        hover im.Scale("gui/main_hover5.png", 525, 90)
-        action Quit(confirm=False)
+        hover im.Scale("gui/main_hover5.png", 550, 120)
+        action Quit(confirm=True)
         xalign 0.15
         yalign 0.85
         hovered SetVariable("heroes_hover", True)
