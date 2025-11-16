@@ -266,11 +266,7 @@ label start:
     play movie "images/video/intro.webm"
     # $ renpy.pause(47.0, hard=False)
     stop movie fadeout 1.0
-<<<<<<< HEAD
-    jump menu1
-=======
     jump street
->>>>>>> origin/master
 
 screen center_box250(t=""):
     frame:
@@ -429,31 +425,33 @@ label corridor_talking2:
 
     show screen down_box("Герой", "Вот он, ключевой навык. Зарабатывать очки. В школе можно было быть серой мышью и все равно получить аттестат. Здесь же твоя оценка на экзамене может на 50% состоять из того, вспомнит ли тебя преподаватель и как он к тебе относится. Нужно строить имидж с нуля. Не тот, что навязала тебе школа, а тот, который будет выгоден.") with dissolve
     
-<<<<<<< HEAD
-    # Друг говорит - показываем только его справа
-    show friend normal at right_pos
-    f "Я же говорил, об этом месте слабают легенды"
-    
-    # ГГ отвечает - показываем только его слева
-    show gg normal at right_pos
-    hide friend  # скрываем предыдущего говорящего
-    g "Да, это место действительно впечатляет!"
-    
-    # Друг снова говорит - показываем только его
-    show friend normal at right_pos
-    hide gg  # скрываем ГГ
-    f "Я читал, что здесь происходили странные вещи..."
+    $ renpy.pause(999.0)
 
-    return
+    hide gg day 1 calm with dissolve
 
+    hide screen down_box with dissolve
 
+    show gg day 1 curious at left_pos with dissolve
 
+    show screen down_box("Герой", "Кем я буду? Упорным трудягой? Гениальным лентяем? Неформальным лидером? Выбор сейчас, в эти первые недели, определит все.") with dissolve
 
+    $ renpy.pause(999.0)
 
+    hide gg day 1 curious with dissolve
 
+    hide screen down_box with dissolve
 
+    show gg day 1 DGAF at left_pos with dissolve
 
+    show screen down_box("Герой", "Каждая моя улыбка, каждое «здравствуйте» в коридоре, каждый поднятый на семинаре палец — это инвестиция. Инвестиция в симпатию, а значит, в зачеты, в рекомендации, в будущее. Чертов квест на выживание, где вместо меча и щита — дипломатия и самореклама.") with dissolve
 
+    $ renpy.pause(999.0)
+
+    hide gg day 1 DGAF with dissolve
+
+    hide screen down_box with dissolve
+
+    jump mathexam 
 
 image notebook = "images/objects/notebook.png" 
 
@@ -464,7 +462,7 @@ style limittext:
     size 25
     color"#000000"
 
-default strq1 = "2+2 * 2 = "
+default strq1 = "2 + 2 * 2 = "
 default strq2 = "4! + 1 = "
 default strq3 = "lim sin(x)/x = "
 default strq4 = "lim (3x+1)/x = "
@@ -647,32 +645,3 @@ label menu1_end:
 
 label questionscapybara:
     "end"
-=======
-    $ renpy.pause(999.0)
-
-    hide gg day 1 calm with dissolve
-
-    hide screen down_box with dissolve
-
-    show gg day 1 curious at left_pos with dissolve
-
-    show screen down_box("Герой", "Кем я буду? Упорным трудягой? Гениальным лентяем? Неформальным лидером? Выбор сейчас, в эти первые недели, определит все.") with dissolve
-
-    $ renpy.pause(999.0)
-
-    hide gg day 1 curious with dissolve
-
-    hide screen down_box with dissolve
-
-    show gg day 1 DGAF at left_pos with dissolve
-
-    show screen down_box("Герой", "Каждая моя улыбка, каждое «здравствуйте» в коридоре, каждый поднятый на семинаре палец — это инвестиция. Инвестиция в симпатию, а значит, в зачеты, в рекомендации, в будущее. Чертов квест на выживание, где вместо меча и щита — дипломатия и самореклама.") with dissolve
-
-    $ renpy.pause(999.0)
-
-    hide gg day 1 DGAF with dissolve
-
-    hide screen down_box with dissolve
-
-    return 
->>>>>>> origin/master
