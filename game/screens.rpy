@@ -348,7 +348,7 @@ screen navigation():
             ## версии.
             frame:
                 padding (20, 10, 20, 10)
-                textbutton _(" Выход") action Quit(confirm=not main_menu)
+                textbutton _(" Выход") action Quit()
 
 
 style navigation_button is gui_button
@@ -549,7 +549,7 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
     textbutton _("Вернуться"):
         style "return_button"
 
-        action Return()
+        action [Return()]
 
     label title
 
