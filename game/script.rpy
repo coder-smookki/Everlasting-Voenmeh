@@ -734,7 +734,7 @@ default int_answer3 = 1
 default int_answer4 = 3
 default int_answer5 = 0
 
-image question1 = Text("2+2 * 2 = ", style="booktext")
+image question1 = Text("2 + 2 * 2 = ", style="booktext")
 image question2 = Text("4! + 1 = ", style="booktext")
 image question3 = Text("lim sin(x)/x = ", style="booktext")
 image question4 = Text("lim (3x+1)/x = ", style="booktext")
