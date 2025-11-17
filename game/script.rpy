@@ -5,7 +5,8 @@ image bg room 2 = "images/bg/room2.jpg"
 image bg room 3 = "images/bg/room3.jpg"
 image bg room 4 = "images/bg/room4.png"
 image bg room 5 = "images/bg/room5.jpg"
-image bg corridor = "images/bg/corridor.jpg"
+image bg room 6 = "images/bg/room6.png"
+image bg corridor = "images/bg/cor1ridor.jpg"
 image bg corridor2 = "images/bg/corridor2.jpg"
 image bg window_macbook = "images/bg/window_macbook.png"
 image bg robot_room = "images/bg/robot_room.png"
@@ -1234,26 +1235,158 @@ label mathexam:
         xpos 700
         ypos yfirst + 4*yshift  
     
-    hide tarasov happy with dissolve
-    show tarasov angry at right_pos with dissolve
-    show screen down_box("Тарасов", "#4839BD", "Количество правильных ответов: [correct_answers_count]") with dissolve
-    $ renpy.pause(999.0)
-    hide screen down_box with dissolve
+    if correct_answers_count >= 4:
+        show screen down_box("Тарасов", "#4839BD", "Количество правильных ответов: [correct_answers_count]") with dissolve
+        $ renpy.pause(999.0)
+        hide screen down_box with dissolve
 
-    show screen down_box("Тарасов", "#4839BD", "Это тебе не отчёты писать! Это высшая математика, мой дорогой друг!") with dissolve
-    $ renpy.pause(999.0)
-    hide tarasov angry with dissolve
-    hide screen down_box with dissolve
+        show screen down_box("Тарасов", "#4839BD", "Вы молодцы! Сдали тест.") with dissolve
+        $ renpy.pause(999.0)
+        hide tarasov happy with dissolve
+        hide screen down_box with dissolve
+
+    if correct_answers_count < 4:
+        hide tarasov happy with dissolve
+        show tarasov angry at right_pos with dissolve
+        show screen down_box("Тарасов", "#4839BD", "Количество правильных ответов: [correct_answers_count]") with dissolve
+        $ renpy.pause(999.0)
+        hide screen down_box with dissolve
+
+        show screen down_box("Тарасов", "#4839BD", "Это тебе не отчёты писать! Это высшая математика, мой дорогой друг! Вы не сдали тест..") with dissolve
+        $ renpy.pause(999.0)
+        hide tarasov angry with dissolve
+        hide screen down_box with dissolve
+
     hide q1 with dissolve
     hide q2 with dissolve
     hide q3 with dissolve
-    hide xapproaching0 with dissolve
+    hide abcde with dissolve
     hide q4 with dissolve  
     hide xapproachinginf with dissolve
     hide q5 with dissolve  
+    hide xapproaching0 with dissolve
     hide notebook with dissolve 
 
+    if correct_answers_count >= 4:
+        jump room_talking5_continue_first_branch
+    
+    if correct_answers_count < 4:
+        jump room_talking5_continue_second_branch
+
+label room_talking5_continue_first_branch:
+    scene bg room 5 with dissolve
+    window hide
+
+    show gg day 2 calm at left_pos with dissolve
+    show screen center_box150("Марк выдыхает, проводя рукой по волосам") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Марк", "#B6544D", "Фух, пронесло. Думал, с этими лимитами точно провалюсь, но вроде бы нормально.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show altushka DGAF at right_pos with dissolve
+    show screen down_box("Алиса", "#DA4E8B", "Три из пяти. Не блеск, но для первого теста сойдёт. А ты что, на пятёрку написал?") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    hide gg day 2 calm with dissolve
+    show gg day 2 happy3 at left_pos with dissolve
+    show screen center_box200("Марк пожимает плечами, стараясь сохранить скромность, но довольная улыбка выдаёт его") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box200 with dissolve
+
+    show screen down_box("Марк", "#B6544D", "Может и на пятерку. Повезло с последней задачей, я как раз такое решал на прошлой неделе.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box150("Алиса поднимает бровь, уголки губ дрогнули") with dissolve
+    $ renpy.pause(999.0)
+    hide gg day 2 happy3 with dissolve
+    hide altushka DGAF with dissolve
+    hide screen center_box150 with dissolve
+
+    jump room_talking6
+
+label room_talking5_continue_second_branch:
+    scene bg room 5 with dissolve
+    window hide
+
+    show gg day 2 neutral at left_pos with dissolve
+    show screen center_box150("Марк мрачно вздыхает, глядя в экран телефона") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Марк", "#B6544D", "Ну вот... Пределы меня и добили. Надо было больше готовиться.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show altushka neutral at right_pos with dissolve
+    show screen center_box150("Алиса пожимает плечами, проверяя свой результат") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Алиса", "#DA4E8B", "У меня три. Не смертельно. Первый тест всегда такой, диагностический.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen down_box("Марк", "#B6544D", "Легко тебе говорить. А у меня двойка... Или тройка, если повезёт с проверкой.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box150("Алиса смотрит на него внимательно") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Алиса", "#DA4E8B", "Слушай, не вешай нос. Следующий тест через две недели — успеешь подтянуть. Если хочешь, можем посидеть в библиотеке, разобрать ошибки.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+    
+    show screen center_box150("Марк смотрит на неё с удивлением, затем кивает.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Марк", "#B6544D", "А... Да, было бы неплохо. Спасибо.") with dissolve
+    $ renpy.pause(999.0)
+    hide altushka neutral with dissolve
+    hide gg day 2 neutral with dissolve
+    hide screen down_box with dissolve
+
+    jump room_talking6
+
+label room_talking5_continue2_second_branch:
+    scene corridor with dissolve
+    window hide
+
+    show altushka blush at right_pos with dissolve
+    show screen center_box150("Алиса разворачивается и идёт, бросив через плечо") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show gg day 2 questioning2 at left_pos with dissolve
+    show screen down_box("Алиса", "#DA4E8B", "Только не ной, если я окажусь строже нашего матана.") with dissolve
+    $ renpy.pause(999.0)
+    hide altushka blush with dissolve
+    hide gg day 2 questioning2 with dissolve
+    hide screen down_box with dissolve
+
+    jump room_talking6
+
+label room_talking6:
+    scene bg room 6 with dissolve
+    window hide
+
+    show screen center_box400("Кабинет для введения в IT был стерильно-пустым. Ряды одинаковых компьютеров с матовыми экранами, практичные кресла для студентов и больше — ничего. Ни плакатов, ни растений, ни лишних деталей. Чистое функциональное пространство, где из украшений были только вентиляционные решётки на потолке.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box400 with dissolve
+
+    show screen center_box250("За преподавательским столом сидела миловидная пожилая женщина в пестрой рубашке. Её голос был ровным и монотонным, словно системный сигнал компьютера.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box250 with dissolve
+
     return
+
 
 default beginpow = "{size=-10}"
 default endpow = "{/size}"
