@@ -1273,6 +1273,7 @@ image question25 = Text("lim sin5x/ln(x+1)= ", style="booktext")
 default correct_answers_list2 = []
 
 label mathexam2:
+    $ correct_answers_list2 = []
     $ yposnotebook = -56
     $ sizebetween = 80
     $ yunderlimit = 45
