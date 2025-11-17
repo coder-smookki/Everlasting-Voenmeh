@@ -157,6 +157,12 @@ image kurochkin thinking = At("images/characters/kurochkin/thinking.png", Transf
 image kurochkin neutral = At("images/characters/kurochkin/neutral.png", Transform(zoom=1.3))
 image kurochkin questioning = At("images/characters/kurochkin/questioning.png", Transform(zoom=1.3))
  
+image zemlyanskaya angry = At("images/characters/zemlyanskaya/angry.png", Transform(zoom=1.3))
+image zemlyanskaya happy = At("images/characters/zemlyanskaya/happy.png", Transform(zoom=1.3))
+image zemlyanskaya thinking = At("images/characters/zemlyanskaya/thinking.png", Transform(zoom=1.3))
+image zemlyanskaya neutral = At("images/characters/zemlyanskaya/neutral.png", Transform(zoom=1.3))
+image zemlyanskaya questioning = At("images/characters/zemlyanskaya/questioning.png", Transform(zoom=1.3))
+
 # Позиции
 define left_pos = Position(xalign=-0.1, ypos=1.4)
 define right_pos = Position(xalign=1.1, ypos=1.4)
@@ -1498,3 +1504,70 @@ label capybaragame:
 label capybaraincorrect:
     "пошёл отсюда"
 
+
+
+
+
+
+label variousquestions:
+    $ answerbool = False
+    while not answer:
+        menu:
+            "Твой робот постоянно падает на поворотах. Что нужно проверить в первую очередь?"
+
+            "a) Программу":
+                "неверно"
+
+            "b) Батарейку":
+                "неверно"
+
+            "c) Колеса":
+                $ answerbool = True
+                "верно"
+
+            "d) Датчики":
+                "неверно"
+
+    "Правильный ответ: c) Колеса. Скорее всего, они плохо закреплены или разного размера."
+
+    $ answerbool = False
+    while not answer:
+        menu:
+            "Робот должен объезжать препятствия. Какой датчик для этого лучше всего подойдет?"
+
+            "a) Датчик температуры":
+                "неверно"
+
+            "b) Датчик освещенности":
+                "неверно"
+
+            "c) Ультразвуковой датчик":
+                $ answerbool = True
+                "верно"
+
+            "d) Датчик звука":
+                "неверно"
+
+    "Правильный ответ: c) Ультразвуковой датчик. Он измеряет расстояние до предметов."
+
+        
+    $ answerbool = False
+    while not answer:
+        menu:
+            "Мотор робота не крутится, хотя программа работает. В чем может быть проблема?"
+
+            "a) Сломан экран":
+                "неверно"
+
+            "b) Датчик освещенности":
+                $ answerbool = True
+                "верно"
+
+            "c) Неправильный цвет корпуса":
+                "неверно"
+
+            "d) Отсутствует интернет":
+                "неверно"
+
+    "Правильный ответ: b) Перепутаны провода. Самая частая причина, по которой мотор не получает питание."
+    
