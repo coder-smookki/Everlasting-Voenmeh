@@ -8,6 +8,7 @@ image bg corridor = "images/bg/corridor.jpg"
 image bg corridor2 = "images/bg/corridor2.jpg"
 image bg window_macbook = "images/bg/window_macbook.png"
 image bg robot_room = "images/bg/robot_room.png"
+image bg capybara = "images/bg/full_valshtein.webp"
 
 # Объекты  
 image robot items idle = "images/objects/robot_items_idle.png"
@@ -271,7 +272,7 @@ label start:
     play movie "images/video/intro.webm"
     # $ renpy.pause(47.0, hard=False)
     stop movie fadeout 1.0
-    jump street
+    jump mathexam
 
 screen center_box100(t=""):
     frame:
@@ -769,7 +770,7 @@ label mathexam:
         xpos 700
         ypos yfirst + 2*yshift 
     
-    show xapproaching0:
+    show xapproaching0 as abcde:
         xpos 700 + xunderlimit
         ypos yfirst + 2*yshift  + yunderlimit
 
@@ -860,6 +861,146 @@ label mathexam:
     " "
     return
 
+default beginpow = "{size=-10}"
+default endpow = "{/size}"
+
+default str2q1 = "1/2 + 1/3 + 1/6 = "
+default str2q2 = "10!/8! = "
+default str2q3 = "lim(x*x)/(1-cosx)= "
+default str2q4 = "x^{size=-10}2{/size} -6x+9=0   x= "
+default str2q5 = "lim sin5x/ln(x+1)= "
+
+default int2_answer1 = 1
+default int2_answer2 = 90
+default int2_answer3 = 2
+default int2_answer4 = 3
+default int2_answer5 = 5
+
+image question21 = Text("1/2 + 1/3 + 1/6 = ", style="booktext")
+image question22 = Text("10!/8! = ", style="booktext")
+image question23 = Text("lim(x*x)/(1-cosx)= ", style="booktext")
+image question24 = Text("x^{size=-10}2{/size} -6x+9=0   x= ", style="booktext")
+image question25 = Text("lim sin5x/ln(x+1)= ", style="booktext")
+
+default correct_answers_list2 = []
+
+label mathexam2:
+    $ yposnotebook = -56
+    $ sizebetween = 80
+    $ yunderlimit = 45
+    $ xunderlimit = 10
+    $ yshift = 85
+    $ yfirst = 230
+
+    show notebook:
+        zoom 2.0
+        xalign 0.5
+        ypos yposnotebook
+    
+    show question21 as q1:
+        xpos 700
+        ypos yfirst
+    
+
+    show question22 as q2:
+        xpos 700
+        ypos yfirst + yshift
+
+    show question23 as q3:
+        xpos 700
+        ypos yfirst + 2*yshift 
+    
+    show xapproaching0 as abcd:
+        xpos 700 + xunderlimit
+        ypos yfirst + 2*yshift  + yunderlimit
+
+    show question24 as q4:
+        xpos 700
+        ypos yfirst + 3*yshift 
+    
+
+    show question25 as q5:
+        xpos 700
+        ypos yfirst + 4*yshift 
+
+    show xapproaching0:
+        xpos 700 + xunderlimit
+        ypos yfirst + 4*yshift + yunderlimit
+
+    $ user_answer1 = renpy.input("Введите ваш результат:",allow="-01234567890",length = 4)
+    $ answer_on_question = str2q1 + user_answer1
+    show image Text("[answer_on_question]",style="booktext") as q1:
+        xpos 700
+        ypos yfirst
+    
+    $ correct_answers_list2.append(user_answer1.isnumeric() and int(user_answer1) == int2_answer1)
+
+    $ user_answer2 = renpy.input("Введите ваш результат:",allow="-01234567890",length = 4)
+    $ answer_on_question  = str2q2 + user_answer2
+    show image Text("[answer_on_question]",style="booktext") as q2:
+        xpos 700
+        ypos yfirst + yshift 
+
+    $ correct_answers_list2.append(user_answer2.isnumeric() and (int(user_answer2) == int2_answer2))
+
+    $ user_answer3 = renpy.input("Введите ваш результат:",allow="-01234567890",length = 4)
+    $ answer_on_question  = str2q3 + user_answer3
+    show image Text("[answer_on_question]",style="booktext") as q3:
+        xpos 700
+        ypos yfirst + 2*yshift 
+    
+    show xapproaching0:
+        xpos 700 + xunderlimit
+        ypos yfirst + 2*yshift + yunderlimit
+
+    $ correct_answers_list2.append(user_answer3.isnumeric() and (int(user_answer3) == int2_answer3))
+
+
+    $ user_answer4 = renpy.input("Введите ваш результат:",allow="-01234567890",length = 4)
+    $ answer_on_question  = str2q4 + user_answer4
+    show image Text("[answer_on_question]",style="booktext") as q4:
+        xpos 700
+        ypos yfirst + 3*yshift 
+        
+    $ correct_answers_list2.append(user_answer4.isnumeric() and (int(user_answer4) == int2_answer4))
+
+    $ user_answer5 = renpy.input("Введите ваш результат:",allow="-01234567890",length = 4)
+    $ answer_on_question  = str2q5 + user_answer5
+    show image Text("[answer_on_question]",style="booktext") as q5:
+        xpos 700
+        ypos yfirst + 4*yshift 
+        
+    $ correct_answers_list2.append(user_answer5.isnumeric() and (int(user_answer5) == int2_answer5))
+
+    $ correct_answers_count2 = sum(correct_answers_list2)  
+    "кхм-кхм дайте посмотреть"
+
+    $ true_answer1 = "".join([str2q1 ,"{b}",("{color=#22792B}" if correct_answers_list2[0] else "{color=#FF0000}"),user_answer1,"" if correct_answers_list2[0] else "{/color}","{/b}"])
+    $ true_answer2 = "".join([str2q2 ,"{b}",("{color=#22792B}" if correct_answers_list2[1] else "{color=#FF0000}"),user_answer2,"" if correct_answers_list2[1] else "{/color}","{/b}"])
+    $ true_answer3 = "".join([str2q3 ,"{b}",("{color=#22792B}" if correct_answers_list2[2] else "{color=#FF0000}"),user_answer3,"" if correct_answers_list2[2] else "{/color}","{/b}"])
+    $ true_answer4 = "".join([str2q4 ,"{b}",("{color=#22792B}" if correct_answers_list2[3] else "{color=#FF0000}"),user_answer4,"" if correct_answers_list2[3] else "{/color}","{/b}"])
+    $ true_answer5 = "".join([str2q5 ,"{b}",("{color=#22792B}" if correct_answers_list2[4] else "{color=#FF0000}"),user_answer5,"" if correct_answers_list2[4] else "{/color}","{/b}"])
+
+    show image Text("[true_answer1]",style="booktext") as q1:
+        xpos 700
+        ypos yfirst 
+    show image Text("[true_answer2]",style="booktext") as q2:
+        xpos 700
+        ypos yfirst + yshift
+    show image Text("[true_answer3]",style="booktext") as q3:
+        xpos 700
+        ypos yfirst + 2*yshift  
+    show image Text("[true_answer4]",style="booktext") as q4:
+        xpos 700
+        ypos yfirst + 3*yshift  
+    show image Text("[true_answer5]",style="booktext") as q5:
+        xpos 700
+        ypos yfirst + 4*yshift  
+        
+    "количество правильных ответов: [correct_answers_count2]"
+    return
+
+
 init:
     $ timer_range = 0
     $ timer_jump = 0
@@ -886,39 +1027,72 @@ screen countdown:
     bar value time range timer_range xalign 0.11 yalign 0.70 xysize (100,350) bar_vertical True at alpha_dissolve # This is the timer bar.
 
 #xalign 0.1225 yalign 0.65
+define gui.choice_button_text_idle_color = "#ffffff"
+define gui.choice_button_text_hover_color = "#000000"
 
-label game2:
-    $ time = 10
+label capybaragame:
+    scene bg capybara with dissolve
+    $ time = 12
     $ timer_range = 10
     $ timer_jump = 'capybaraincorrect'
-
+    $ color = ""
+    #hide screen countdown
     show screen countdown zorder 0
 
     show clock zorder 1:
         xalign 0.0
         yalign 0.0
-        
-    menu:
-        "1. Что такое программа, алгоритм и язык программирования?" 
 
-        "Choice 1":
-            hide screen capybaraincorrect
-            "You chose 'Choice 1'"
-            jump menu1_end
-        "Choice 2":
-            hide screen countdown
-            "You chose 'Choice 2'"
-            jump menu1_end
-   
+  
+    menu:
+        "Что такое массив в C?"
+
+        "Это коллекция переменных разного типа":
+            jump capybaraincorrect
+
+        "Это указатель на первую ячейку памяти":
+            jump capybaraincorrect
+
+        "Это совокупность элементов одного типа, расположенных в памяти последовательно":
+            $ timer_range = 11
+            $ time = min(timer_range,time + 5) 
+
+
+
+    menu:
+        "Какая функция используется в C для выделения динамической памяти?"
+
+        "malloc()":
+            $ timer_range = 10
+            $ time = min(timer_range,time + 5) 
+            
+        "new()":
+            jump capybaraincorrect
+        
+        "allocate()":
+            jump capybaraincorrect
+
+        "create()":
+            jump capybaraincorrect
+
+
+    menu:
+        "Что происходит при выполнении операции инкремента указателя ptr++ в C?"
+
+        "Значение указателя увеличивается ровно на 1 байт":
+            jump capybaraincorrect
+        "Значение указателя увеличивается на размер типа, на который он указывает":
+            $ timer_range = 11
+            $ time = min(timer_range,time + 7) 
+        "Происходит инкремент значения в ячейке памяти, на которую указывает ptr":
+            jump capybaraincorrect
+        "Указатель начинает указывать на случайную область памяти":
+            jump capybaraincorrect
+
+    hide screen countdown
+    "ты ответил на все вопросы"
+
 
 label capybaraincorrect:
-    "ты завилил тест"
-label menu1_slow:
-    "You didn't choose anything."
-    
+    "пошёл отсюда"
 
-label menu1_end:
-    "Anyway, let's do something else."
-
-label questionscapybara:
-    "end"
