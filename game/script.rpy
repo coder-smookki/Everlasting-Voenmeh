@@ -9,7 +9,7 @@ image bg corridor2 = "images/bg/corridor2.jpg"
 image bg window_macbook = "images/bg/window_macbook.png"
 image bg robot_room = "images/bg/robot_room.png"
 image bg capybara = "images/bg/full_valshtein.webp"
-
+image bg hallway = "images/bg/robot_room.jpg"
 # Объекты  
 image robot items idle = "images/objects/robot_items_idle.png"
 image robot items hover = "images/objects/robot_items_hover.png"
@@ -745,6 +745,8 @@ image xapproaching0 = Text("x->0",style="limittext")
 
 default correct_answers_list = []
 label mathexam:
+
+    $ correct_answers_list = []
     $ yposnotebook = -56
     $ sizebetween = 80
     $ yunderlimit = 45
@@ -832,6 +834,11 @@ label mathexam:
     $ correct_answers_list.append(user_answer5.isnumeric() and (int(user_answer5) == int_answer5))
 
     $ correct_answers_count = sum(correct_answers_list)  
+
+    show tarasov happy:
+        zoom 0.5
+        xalign 0.9
+        yalign 0.5
     "кхм-кхм дайте посмотреть"
 
     $ true_answer1 = "".join([strq1 ,"{b}",("{color=#22792B}" if correct_answers_list[0] else "{color=#FF0000}"),user_answer1,"" if correct_answers_list[0] else "{/color}","{/b}"])
@@ -855,10 +862,19 @@ label mathexam:
     show image Text("[true_answer5]",style="booktext") as q5:
         xpos 700
         ypos yfirst + 4*yshift  
-        
+
+    # if correct_answers_count <= 2:
+    #     show tarasov angry:
+    #         zoom 0.5
+    #         xalign 0.9
+    #         yalign 0.5
+    #     "пшёл на перездачу"
+    #     "..."
+    #     jump mathexam
+
+
     "количество правильных ответов: [correct_answers_count]"
     "это тебе не отчёты писать"
-    " "
     return
 
 default beginpow = "{size=-10}"
@@ -1037,6 +1053,7 @@ label capybaragame:
     $ timer_jump = 'capybaraincorrect'
     $ color = ""
     #hide screen countdown
+    
     show screen countdown zorder 0
 
     show clock zorder 1:
@@ -1055,7 +1072,7 @@ label capybaragame:
 
         "Это совокупность элементов одного типа, расположенных в памяти последовательно":
             $ timer_range = 11
-            $ time = min(timer_range,time + 5) 
+            $ time = min(timer_range,time + 7) 
 
 
 
@@ -1064,7 +1081,7 @@ label capybaragame:
 
         "malloc()":
             $ timer_range = 10
-            $ time = min(timer_range,time + 5) 
+            $ time = min(timer_range,time + 7) 
             
         "new()":
             jump capybaraincorrect
@@ -1089,6 +1106,18 @@ label capybaragame:
         "Указатель начинает указывать на случайную область памяти":
             jump capybaraincorrect
 
+    menu:
+        "Что означает ключевое слово static при объявлении переменной внутри функции?"
+
+        "Переменная становится глобальной и видимой во всех файлах программы":
+            jump capybaraincorrect
+        "Переменная размещается в регистре процессора для ускорения доступа":
+            jump capybaraincorrect
+        "Переменная автоматически инициализируется нулевым значением при каждом вызове":
+            jump capybaraincorrect
+        "Переменная сохраняет свое значение между вызовами функции":
+            $ timer_range = 11
+            $ time = min(timer_range,time + 7) 
     hide screen countdown
     "ты ответил на все вопросы"
 
