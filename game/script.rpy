@@ -12,6 +12,8 @@ image bg window_macbook = "images/bg/window_macbook.png"
 image bg robot_room = "images/bg/robot_room.png"
 image bg capybara = "images/bg/full_valshtein.webp"
 image bg hallway = "images/bg/robot_room.jpg"
+image bg wallstein room = "images/bg/wallstein_room.png"
+
 # Объекты  
 image robot items idle = "images/objects/robot_items_idle.png"
 image robot items hover = "images/objects/robot_items_hover.png"
@@ -451,7 +453,7 @@ label street:
     hide screen center_box250 with dissolve
 
     # jump corridor_talking
-    jump room_talking5
+    jump wallstein_room
 
 label corridor_talking:
     scene bg corridor with dissolve
@@ -1385,7 +1387,151 @@ label room_talking6:
     $ renpy.pause(999.0)
     hide screen center_box250 with dissolve
 
-    return
+    show rakova thinking at right_pos with dissolve
+    show screen down_box("Ракова", "#FFF2A0", "...естественно, вы уже знакомы с базовыми принципами ассемблера. Напомню лишь о сегментных регистрах, чтобы понимать, почему в современных ОС...") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box250("Её объяснения текли плавно, но создавали ощущение, что ты опоздал на пару на два десятилетия и должен навёрстывать гигабайты упущенной информации.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box250 with dissolve
+
+    show screen down_box("Ракова", "#FFF2A0", "....Таким образом, роботостроение — это не просто механика и программирование. Без понимания, как оптимизировать эти параметры на уровне железа, ваш робот либо разрядится за пять минут, либо утонет в собственных вычислениях.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box200("Взгляд Раковой на мгновение задерживается на Марке, который невольно оживился при словах «робот»") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box200 with dissolve 
+
+    hide rakova thinking with dissolve
+    show rakova neutral at right_pos with dissolve
+    show screen down_box("Ракова", "#FFF2A0", "Кстати о роботах... Марк, раз уж вы проявляете такой неподдельный интерес, вам стоит навестить Вальштейна в кабинете 404 на третьем этаже. У него как раз завалялись кое-какие... излишки компонентов. Думаю, для вашего проекта это будет полезно.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box200("Марк замирает с выражением полного недоумения на лице. Преподавательница возвращается к лекции, как ни в чём не бывало") with dissolve
+    $ renpy.pause(999.0)
+    hide rakova neutral with dissolve
+    hide screen center_box200 with dissolve 
+
+    jump corridor_talking3
+
+label corridor_talking3:
+    scene bg corridor2 with dissolve
+    window hide
+
+    show gg day 2 curious at left_pos with dissolve
+    show screen center_box150("Марк шёпотом, оглядывааясь...") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Марк", "#B6544D", "Ты это слышала? Откуда она вообще узнала? Я в жизни ей ничего не говорил!") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show altushka neutral at right_pos with dissolve
+    show screen center_box150("Алиса задумчиво теребя цепочку на шее..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Алиса", "#DA4E8B", "Может, Лев проболтался? Или она просто по твоим конспектам догадалась — ты же на каждой странице рисуешь схемы и пишешь «каркас», «шасси»...") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen down_box("Марк", "#B6544D", "По конспектам? Она же даже не подходила ко мне! И кто вообще этот Вальштейн? Это ловушка?") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box150("Алиса пожимает плечами, но в глазах интерес..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Алиса", "#DA4E8B", "Не знаю, кто такой Вальштейн... Но если там правда есть детали...") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box150("Алиса смотрит на Марка с лёгкой ухмылкой..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Алиса", "#DA4E8B", "Стоит рискнуть. В конце концов, лучшие компоненты обычно достаются тем, кого странные бабушки-прорицательницы отправляют в тёмные лаборатории.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    jump wallstein_room
+
+label wallstein_room:
+    scene bg wallstein room with dissolve
+    window hide
+
+    show screen center_box350("Дверь в кабинет Вальштейна была приоткрыта. Марк осторожно вошел внутрь. Комната была завалена всевозможными предметами- на широких подоконниках кучками лежали мягкие подушки, по всему полу валялось сено и игрушки зверьков. Все помещение было фанатично стилизовано под обитель его домашних зверят- милых капибар.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box350 with dissolve
+
+    show wallstein thinking at right_pos with dissolve
+    show screen down_box("Вальштейн", "#AA6F00", "Закрой дверь. Сквозняк. Капибары не любят сквозняков.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show gg day 2 calm at left_pos with dissolve
+    show screen center_box150("Марк послушно закрывает дверь") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen center_box150("Вальштейн медленно поворачивается в кресле..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Вальштейн", "#AA6F00", "Так... Новичок. Бабушка прислала, да?") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box150("Вальштейн пристально смотрит на Марка поверх очков..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Вальштейн", "#AA6F00", "Она думает, что любой, у кого есть пара кривых рук и желание собрать железку, уже инженер.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    hide gg day 2 calm with dissolve
+    show gg day 2 curious at left_pos with dissolve
+    show screen down_box("Марк", "#B6544D", "Я... Мне сказали, что вы можете помочь с деталями для робота.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    hide wallstein thinking with dissolve
+    show wallstein happy at right_pos with dissolve
+    show screen center_box150("Вальштейн усмехается..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Вальштейн", "#AA6F00", "Детали? У меня не склад запчастей.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen down_box("Вальштейн", "#AA6F00", "Но раз уж ты здесь... Проверим, насколько твоя голова соответствует амбициям.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box150("Вальштейн берет в руки секундомер..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    hide wallstein happy with dissolve
+    show wallstein neutral at right_pos with dissolve
+    show screen down_box("Вальштейн", "#AA6F00", "Пять вопросов. Только по основам. Не ответишь — будешь любоваться на капибару снаружи, через дверное стекло.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box150("Вальштейн щёлкает секундомером") with dissolve
+    $ renpy.pause(999.0)
+    hide wallstein neutral with dissolve
+    hide gg day 2 curious with dissolve
+    hide screen center_box150 with dissolve
+
+    jump capybaragame
 
 
 default beginpow = "{size=-10}"
@@ -1630,17 +1776,147 @@ label capybaragame:
         "Переменная сохраняет свое значение между вызовами функции":
             $ timer_range = 11
             $ time = min(timer_range,time + 7) 
-            hide screen countdown
-    "ты ответил на все вопросы"
+
+    hide screen countdown
+    hide clock
+    show gg day 2 happy3 at left_pos with dissolve        
+    show wallstein happy at right_pos with dissolve
+    show screen down_box("Вальштейн", "#AA6F00", "Молодец! Ты ответил на все вопросы") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box150("Вальштейн ставя галочку в зачётном листе") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Вальштейн", "#AA6F00", "Хм... На удивление, базовые знания имеются… Это не полный провал, как я предполагал. Ладно, договор есть договор.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box150("Вальштейн указывает рукой в угол комнаты") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    hide wallstein happy with dissolve
+    show wallstein neutral at right_pos with dissolve
+    show screen down_box("Вальштейн", "#AA6F00", "Подходи к Роджеру. Бери свои лампочки и не задерживайся — капибары не любят, когда трогают их личные вещи") with dissolve
+    $ renpy.pause(999.0)
+    hide wallstein neutral with dissolve
+    hide gg day 2 happy3 with dissolve
+    hide screen down_box with dissolve
+
+    jump corridor_talking4
    
 
 label capybaraincorrect:
-    "пошёл отсюда"
+    hide screen countdown
+    hide screen clock
+    show wallstein angry at right_pos with dissolve
+    show screen down_box("Вальштейн", "#AA6F00", "Пошёл вон от сюда! Позорник...") with dissolve
+    $ renpy.pause(999.0)
+    hide wallstein angry with dissolve
+    hide screen down_box with dissolve
 
+    jump street_voenmeh
 
+label corridor_talking4:
+    scene bg corridor2 with dissolve
+    window hide
 
+    show gg day 2 happy2 at left_pos with dissolve
+    show screen center_box150("Марк вытаскивает из рюкзака коробку с лампочками..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
 
+    show screen down_box("Марк", "#B6544D", "Вот же они! Я это сделал! Прошёл этот допрос с секундомером.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
 
+    show altushka blush at right_pos with dissolve
+    show screen down_box("Алиса", "#DA4E8B", "Ничего себе. И он просто... отдал их? Добровольно?") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen down_box("Марк", "#B6544D", " «На удивление, базовые знания имеются», — так и сказал! Пять вопросов, пять ответов. И я получил пропуск к самой капибаре! Она такая... огромная. И лампочки лежали прямо рядом с ней.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen down_box("Алиса", "#DA4E8B", "Значит, наш бунтарь ещё и гений программирования. Поздравляю.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen down_box("Алиса", "#DA4E8B", "Кажется, подвиг требует подкрепления. Пошли обедать, пока ты не начал светиться от голода ярче этих лампочек.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    hide gg day 2 happy2 with dissolve
+    show gg day 2 happy3 at left_pos with dissolve
+    show screen center_box150("Марк смеёться..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Алиса", "#DA4E8B", "Ага, иди разберись со своим голодом.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    jump robot_room2
+
+label robot_room2:
+    scene bg robot_room with dissolve
+    window hide
+
+    show robot pre_ready with dissolve
+    show screen center_box250("Робот Марка, ранее бывший грудой металла и проводов, теперь обзавелся каркасом, подобием головы со встроенными лампочками от Вальштейна и частью проводки") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box250 with dissolve
+
+    show gg day 2 neutral at left_pos with dissolve
+    show screen center_box150("Марк отходит от робота, вытирая руки о брюки..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Марк", "#B6544D", "Ну... Как вам?") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show nerd neutral at right_pos with dissolve
+    show screen center_box150("Лев подходит ближе, внимательно изучая конструкцию") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Лев", "#B99036", "Хм... Каркас стабилизирован. Проводка уложена логичнее, чем я ожидал. С этими лампами в качестве оптических сенсоров... Да, это уже не хлам, а прототип.") with dissolve
+    $ renpy.pause(999.0) 
+    hide screen down_box with dissolve
+
+    hide nerd neutral with dissolve
+    show altushka neutral at right_pos with dissolve
+    show screen center_box150("Алиса скрестив руки, с одобрением смотрит на робота") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Алиса", "#DA4E8B", "Выглядит... осознанно. Серьёзно, Марк, эта груда металла теперь смотрит на нас с определённым намёком на интеллект.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box150("Марк с широкой улыбкой..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Марк", "#B6544D", "Он начинает обретать форму. Буквально. Чувствуете? Теперь это не просто набор запчастей... В нём есть идея.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    hide altushka neutral with dissolve
+    show nerd neutral at right_pos with with dissolve
+    show screen center_box150("Алиса кивает, касаясь аккуратного пучка проводов") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+    
+    show screen down_box("Алиса", "#DA4E8B", "Идея, которая, наконец, нравится при взгляде на неё. Поздравляю, Марк. Ты совершил качественный скачок от «что это?» к «о, так вот что это должно быть!».") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    return
 
 label variousquestions:
     $ answerbool = False
