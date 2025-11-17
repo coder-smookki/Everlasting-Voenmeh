@@ -3,7 +3,8 @@ image bg street = "images/bg/street.jpg"
 image bg room 1 = "images/bg/room1.jpg"
 image bg room 2 = "images/bg/room2.jpg"
 image bg room 3 = "images/bg/room3.jpg"
-image bg room 4 = "images/bg/room4.jpg"
+image bg room 4 = "images/bg/room4.png"
+image bg room 5 = "images/bg/room5.jpg"
 image bg corridor = "images/bg/corridor.jpg"
 image bg corridor2 = "images/bg/corridor2.jpg"
 image bg window_macbook = "images/bg/window_macbook.png"
@@ -13,6 +14,7 @@ image bg hallway = "images/bg/robot_room.jpg"
 # Объекты  
 image robot items idle = "images/objects/robot_items_idle.png"
 image robot items hover = "images/objects/robot_items_hover.png"
+image provoda = "images/objects/provoda.png"
 
 # Спрайты
 image gg day 1 neutral = At("images/characters/gg_day1/nuetral.png", Transform(zoom=1.3, xzoom=-1))
@@ -136,12 +138,12 @@ image altushka irritated = At("images/characters/altushka/irritated.png", Transf
 image altushka neutral = At("images/characters/altushka/neutral.png", Transform(zoom=1.3))
 image altushka scared = At("images/characters/altushka/scared.png", Transform(zoom=1.3))
 
-image robot angry = At("images/characters/robot/angry.png", Transform(zoom=1.3))
-image robot full_ready = At("images/characters/robot/full_ready.png", Transform(zoom=1.3))
-image robot items = At("images/characters/robot/items.png", Transform(zoom=1.3))
-image robot pre_ready = At("images/characters/robot/pre_ready.png", Transform(zoom=1.3))
-image robot prototype = At("images/characters/robot/prototype.png", Transform(zoom=1.3))
-image robot working = At("images/characters/robot/working.png", Transform(zoom=1.3))
+image robot carcas = At("images/characters/robot/carcas.png", Transform(zoom=1))
+image robot full_ready = At("images/characters/robot/full_ready.png", Transform(zoom=1))
+image robot items = At("images/characters/robot/items.png", Transform(zoom=1))
+image robot pre_ready = At("images/characters/robot/pre_ready.png", Transform(zoom=1))
+image robot prototype = At("images/characters/robot/prototype.png", Transform(zoom=1))
+image robot working = At("images/characters/robot/working.png", Transform(zoom=1))
 
 image matveev angry = At("images/characters/matveev/angry.png", Transform(zoom=1.3))
 image matveev happy = At("images/characters/matveev/happy.png", Transform(zoom=1.3))
@@ -442,38 +444,27 @@ label street:
     hide screen center_box250 with dissolve
 
     # jump corridor_talking
-    jump room_talking2
+    jump room_talking5
 
 label corridor_talking:
     scene bg corridor with dissolve
     window hide
 
     show gg day 1 neutral at right_pos with dissolve
-
     show screen down_box("Марк", "#B6544D", "Школа осталась позади вместе со своими готовыми маршрутами и годами выстроенной репутацией.") with dissolve
-
     $ renpy.pause(999.0)
-
     hide screen down_box with dissolve
-
     show screen down_box("Марк", "#B6544D", "Больше ничего нет. Ни истории, ни репутации, ни ярлыка «тихони» или «заучки». Чистый старт. Звук собственных шагов по паркету главного холла отдавался эхом.") with dissolve
-
     $ renpy.pause(999.0)
-
     hide screen down_box with dissolve
-
     hide gg day 1 neutral with dissolve
 
     show screen center_box350("Коридоры становились уже и запутаннее. \nЗаблудиться в новом месте оказалось проще простого, \nв отличие от уже выученной школьной планировки,\nгде здание имело всем понятную кольцевую форму, \nтут нужно включать голову чтобы добраться из точки А в точку Б") with dissolve
-
     $ renpy.pause(999.0)
-
     hide screen center_box350 with dissolve
 
     show screen center_box250("Лестницы бесконечны, их много и они все ведут в разные места,\nиногда кажется что ты быстрее сойдешь с ума чем найдешь дорогу к заветной кафедре робототехники") with dissolve
-
     $ renpy.pause(999.0)
-
     hide screen center_box250 with dissolve
 
     jump corridor_talking2
@@ -483,33 +474,21 @@ label corridor_talking2:
     window hide
 
     show gg day 1 calm at left_pos with dissolve
-
-    show screen down_box("Марк", "#B6544D", "Вот он, ключевой навык. Зарабатывать очки. В школе можно было быть серой мышью и все равно получить аттестат. Здесь же твоя оценка на экзамене может на 50% состоять из того, вспомнит ли тебя преподаватель и как он к тебе относится. Нужно строить имидж с нуля. Не тот, что навязала тебе школа, а тот, который будет выгоден.") with dissolve
-    
+    show screen down_box("Марк", "#B6544D", "В школе можно было быть серой мышью и все равно получить аттестат. Здесь же твоя оценка на экзамене может на 50% состоять из того, вспомнит ли тебя преподаватель и как он к тебе относится. Нужно строить имидж с нуля. Не тот, что навязала тебе школа...") with dissolve
     $ renpy.pause(999.0)
-
     hide gg day 1 calm with dissolve
-
     hide screen down_box with dissolve
 
     show gg day 1 curious at left_pos with dissolve
-
     show screen down_box("Марк", "#B6544D", "Кем я буду? Упорным трудягой? Гениальным лентяем? Неформальным лидером? Выбор сейчас, в эти первые недели, определит все.") with dissolve
-
     $ renpy.pause(999.0)
-
     hide gg day 1 curious with dissolve
-
     hide screen down_box with dissolve
 
     show gg day 1 DGAF at left_pos with dissolve
-
     show screen down_box("Марк", "#B6544D", "Каждая моя улыбка, каждое «здравствуйте» в коридоре, каждый поднятый на семинаре палец — это инвестиция. Инвестиция в симпатию, а значит, в зачеты, в рекомендации, в будущее. Чертов квест на выживание, где вместо меча и щита — дипломатия и самореклама.") with dissolve
-
     $ renpy.pause(999.0)
-
     hide gg day 1 DGAF with dissolve
-
     hide screen down_box with dissolve
 
     jump room_talking1 
@@ -529,65 +508,62 @@ label room_talking1:
     show gg day 1 neutral at left_pos with dissolve
     show screen down_box("Марк", "#B6544D", "Выглядит как стереотипный ботаник, должно быть он необщительный… ну, надо надеятся на лучшее") with dissolve
     $ renpy.pause(999.0)
-    hide gg day 1 neutral with dissolve
     hide screen down_box with dissolve
 
     show nerd neutral at right_pos with dissolve
     show screen center_box200("Марк подходит к свободному месту. Лев замечает его движение и чуть отодвигает свой рюкзак, прежде чем тот что-то скажет") with dissolve
     $ renpy.pause(999.0)
-    hide nerd neutral with dissolve
     hide screen center_box200 with dissolve
 
+    hide gg day 1 neutral with dissolve
     show gg day 1 questioning at left_pos with dissolve
     show screen down_box("Марк", "#B6544D", "Привет. Можно тут присесть?") with dissolve
     $ renpy.pause(999.0)
-    hide gg day 1 questioning with dissolve
     hide screen down_box with dissolve
 
     show nerd neutral at right_pos with dissolve
     show screen down_box("Лев", "#B99036", "Конечно. Я как раз место грел.") with dissolve
     $ renpy.pause(999.0)
-    hide nerd neutral with dissolve
     hide screen down_box with dissolve
 
     show screen center_box200("Марк садится, ставит рюкзак. Короткая пауза, но уже не такая напряженная.") with dissolve
     $ renpy.pause(999.0)
     hide screen center_box200 with dissolve
 
+    hide gg day 1 questioning with dissolve
     show gg day 1 neutral at left_pos with dissolve
     show screen down_box("Марк", "#B6544D", "Меня зовут Марк.") with dissolve
     $ renpy.pause(999.0)
-    hide gg day 1 neutral with dissolve
     hide screen down_box with dissolve
 
-    show nerd neutral at right_pos with dissolve
     show screen down_box("Лев", "#B99036", "Лев. Рад познакомиться!") with dissolve
     $ renpy.pause(999.0)
-    hide nerd neutral with dissolve
     hide screen down_box with dissolve
 
+    hide nerd neutral with dissolve
     show nerd happy2 at right_pos with dissolve
     show screen down_box("Лев", "#B99036", "Похоже, мы оба благополучно не заблудились. Уже достижение на первый день.") with dissolve
     $ renpy.pause(999.0)
-    hide nerd happy2 with dissolve
     hide screen down_box with dissolve
 
+    hide gg day 1 neutral with dissolve
     show gg day 1 questioning at left_pos with dissolve
     show screen down_box("Марк", "#B6544D", "Да уж. Я уже успел два раза спуститься не в ту лестничную клетку. Думал, опоздаю из-за собственной ориентации в пространстве.") with dissolve
     $ renpy.pause(999.0)
-    hide gg day 1 questioning with dissolve
     hide screen down_box with dissolve
 
+    hide nerd happy2 with dissolve
     show nerd neutral at right_pos with dissolve
     show screen down_box("Лев", "#B99036", "Здесь это норма. Главное — не пытаться найти логику в нумерации аудиторий. Принимаешь как данность.") with dissolve
     $ renpy.pause(999.0)
-    hide nerd neutral with dissolve
     hide screen down_box with dissolve
 
     show screen center_box300("Дверь в аудиторию распахивается энергичным движением. На пороге — мужчина в голубой рубашке с пестрым галстуком бабочкой, с доброжелательной улыбкой и озорным блеском в глазах. Он уверенно проходит к кафедре, ставя на неё потрёпанный лэптоп.") with dissolve
     $ renpy.pause(999.0)
     hide screen center_box300 with dissolve
 
+    hide nerd neutral with dissolve
+    hide gg day 1 questioning with dissolve
     show lestenko neutral at right_pos with dissolve
     show screen down_box("Лестенко", "#909BCE", "Ну что, робототехники, заждались?") with dissolve
     $ renpy.pause(999.0)
@@ -671,7 +647,7 @@ screen robot_item_clickable():
         idle "images/objects/robot_items_idle.png"
         hover "images/objects/robot_items_hover.png"
         xpos 550
-        ypos -90
+        ypos -85
         focus_mask True
         action Return("clicked")
 
@@ -691,7 +667,7 @@ label room_talking2:
     hide screen center_box400 with dissolve
 
     show lestenko neutral at right_pos with dissolve
-    show screen down_box("Лестенко", "#909BCE", "Вот и наше главное сокровище! Не пугайтесь творческого беспорядка — в этих <кучах мусора> скрываются будущие шедевры. Осмотритесь, потрогайте, почувствуйте материалы. Постарайтесь найти то, что отзовётся именно вам — возможно, именно эта шестерёнка или тот датчик станут сердцем вашего проекта.") with dissolve
+    show screen down_box("Лестенко", "#909BCE", "Не пугайтесь творческого беспорядка — в этих «кучах мусора» скрываются будущие шедевры. Осмотритесь, потрогайте, почувствуйте материалы. Постарайтесь найти то, что отзовётся именно вам — возможно, именно эта шестерёнка или тот датчик станут сердцем вашего проекта.") with dissolve
     $ renpy.pause(999.0)
     hide lestenko neutral with dissolve
     hide screen down_box with dissolve
@@ -708,10 +684,352 @@ label room_talking2:
     hide robot item idle
     $ rv = renpy.call_screen("robot_item_clickable")
     if rv == "clicked":
-        pass
-    return
+        show robot prototype with dissolve
+        $ renpy.pause(999.0)
+        show nerd happy2 at right_pos with dissolve
+        show screen down_box("Лев", "#B99036", "Ну что, Марк, я вижу, ты решил не мелочиться и сразу взялся за авангардный арт-проект? «Ностальгический андроид в стиле ретро-футуризм»?") with dissolve
+        $ renpy.pause(999.0)
+        hide screen down_box with dissolve
+
+        show gg day 1 neutral at left_pos with dissolve
+        show screen center_box150("Он не отрывается от работы, примеривая провод к каркасу") with dissolve
+        $ renpy.pause(999.0)
+        hide screen center_box150 with dissolve
+        show screen center_box150("Не смотрит на Льва и говорит..") with dissolve
+        $ renpy.pause(999.0)
+        hide screen center_box150 with dissolve
+        show screen down_box("Марк", "#B6544D", "Ты смеёшься, но в этом есть своя философия. Современные сенсорные экраны — они бездушные. А вот этот кинескоп... у него есть лицо. Характер.") with dissolve
+        $ renpy.pause(999.0)
+        hide screen down_box with dissolve
+        
+        hide nerd happy2 with dissolve
+        show nerd DGAF at right_pos with dissolve
+        show screen down_box("Лев", "#B99036", "Характер, говоришь... Интересно, какой характер будет у твоего творения, когда он начнёт вещать о победе коммунизма или показывать «Голубой огонёк»?") with dissolve
+        $ renpy.pause(999.0)
+        hide screen down_box with dissolve
+
+        show screen center_box150("Марк на секунду отрывается от проводов и смотрит на Льва.") with dissolve
+        $ renpy.pause(999.0)
+        hide screen center_box150 with dissolve
+        hide nerd DGAF with dissolve
+        show nerd happy2 at right_pos with dissolve 
+        show screen down_box("Марк", "#B6544D", "А ты представляешь? Все твои минималистичные, блестящие дроны будут молча парить, а мой — единственный, кто сможет прочитать им монолог «Быть или не быть» с соответствующим визуальным рядом. Это не слабость, Лев. Это — уникальное торговое предложение.") with dissolve
+        $ renpy.pause(999.0)
+        hide screen down_box with dissolve
+        show screen center_box150("Лев издаёт короткий смешок, качая головой") with dissolve
+        $ renpy.pause(999.0)
+        hide screen center_box150 with dissolve
+        show screen down_box("Лев", "#B99036", "Ладно, не спорю. По крайней мере, скучно не будет. Только обещай, что он не начнёт просить трёхгранный ключ для настройки вместо двоичного кода.") with dissolve
+        $ renpy.pause(999.0)
+        hide screen down_box with dissolve 
+        show screen center_box150("Марк возвращаясь к работе, уже с более уверенными движениями") with dissolve
+        $ renpy.pause(999.0)
+        hide screen center_box150 with dissolve
+        show screen down_box("Марк", "#B6544D", "Это будет оговорено в мануале. На первой же странице.") with dissolve
+        $ renpy.pause(999.0)
+        hide nerd happy2 with dissolve
+        hide gg day 1 neutral with dissolve
+        hide robot prototype with dissolve
+        hide screen down_box with dissolve
+
+        jump room_talking3
 
 
+label room_talking3:
+    scene bg room 2 with dissolve
+    window hide
+
+    show kurochkin neutral at right_pos with dissolve
+    show screen center_box150("Говорит в микрофон с пафосом, поправляя очки") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+    show screen down_box("Курочкин", "#A965DA", "...и именно в этот момент, если мы посмотрим на карты российского государства семнадцатого века, мы увидим, как принцип «московской централизации»...") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+    show screen center_box250("Голос историка растворялся в гуле, словно помехи на плохом приёме. Его слова о централизации безнадёжно проигрывали щекочущей нервы сплетне, которую вполголоса обсуждали за спиной у Марка.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box250 with dissolve
+    show screen center_box400("Речь шла о главной институтской легенде — призрачном преподавателе по основам программирования. Якобы он не появлялся в стенах вуза с момента открытия нового корпуса. Его кабинет на третьем этаже годами стоял запертым, пыльным и пустым. Но самое странное — его пары никогда не отменяли. В расписании они исправно значились, задания появлялись в цифровой системе, а зачёты таинственным образом проставлялись в ведомости.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box400 with dissolve
+    show screen center_box350("Ходили слухи, что все его курсы были полностью автоматизированы, а лекции читал запрограммированный им когда-то давно бот. Студенты прозвали его «призрак», реальный ли это человек, давно покинувший вуз, но сохранивший свою цифровую тень, или же это с самого начала был эксперимент по созданию искусственного преподавателя.") with dissolve
+    $ renpy.pause(999.0)
+    hide kurochkin neutral with dissolve
+    hide screen center_box350 with dissolve
+
+    show nerd scared at right_pos with dissolve
+    show screen down_box("Лев", "#B99036", "Слышал это? Наш вуз, оказывается, в авангарде образования. Преподаватель-призрак. Нанотехнологии.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+    
+    show gg day 1 curious at left_pos with dissolve
+    show screen down_box("Марк", "#B6544D", "Мне в этом кажется своя гениальная логика. Идеальный программист — тот, кто абстрагировался от физического мира и перешёл в чисто цифровую форму. Может, он и не призрак, а первый успешный эксперимент по загрузке сознания.") with dissolve
+    $ renpy.pause(999.0)
+    hide nerd scared with dissolve
+    hide screen down_box with dissolve
+
+    show nerd happy2 at right_pos with dissolve
+    show screen down_box("Лев", "#B99036", "То есть, пока мы тут паяем провода, он уже обитает на серверах, попивая виртуальный кофе? Интересно, он ставит зачёты только тем, у кого код напоминает его собственную бессмертную прошивку?") with dissolve
+    $ renpy.pause(999.0)
+    hide gg day 1 curious with dissolve
+    hide screen down_box with dissolve
+
+    show gg day 1 happy at left_pos with dissolve
+    show screen down_box("Марк", "#B6544D", "Возможно. Или удаляет пары у тех, кто использует не тот язык программирования. Говорят, если ночью оставить консоль открытой, можно увидеть, как твои ошибки исправляются сами собой... его призрачной рукой.") with dissolve
+    $ renpy.pause(999.0)
+    hide nerd happy2 with dissolve
+    hide screen down_box with dissolve
+
+    show nerd neutral at right_pos with dissolve
+    show screen down_box("Лев", "#B99036", "Ну что ж, тогда я предлагаю нашему будущему роботу оснастить его экранчик. На всякий случай, для спиритического сеанса. Вдруг твой телевизор сможет с ним связаться? «Приём, профессор, уточните по третьей практической!»") with dissolve
+    $ renpy.pause(999.0)
+    hide gg day 1 happy with dissolve
+    hide screen down_box with dissolve
+
+    show gg day 1 neutral at left_pos with dissolve
+    show screen down_box("Марк", "#B6544D", "Думаешь, он оценит ретро-интерфейс? Говорят, призраки любят старые вещи. Может, это и есть ключ к общению.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen down_box("Лев", "#B99036", "Либо ключ, либо он сочтёт это оскорблением и навечно завалит нас на экзамене. Но риск — благородное дело.") with dissolve
+    $ renpy.pause(999.0) 
+    hide nerd neutral with dissolve
+    hide gg day 1 neutral with dissolve
+    hide screen down_box with dissolve
+
+    jump corridor3
+
+label corridor3:
+    scene bg corridor with dissolve
+    window hide
+
+    show screen center_box400("Они свернули в главный коридор кафедры информатики — длинный, залитый холодным светом люминесцентных ламп. Стены, выкрашенные в безликий бежевый цвет, были усыпаны однотипными дверьми с табличками «Компьютерный класс №...». Воздух был спёртым, с характерным запахом перегретого железа и пыли, доносящимся из вентиляционных решёток. Из-за некоторых дверей доносился ровный гул системных блоков и приглушённые голоса преподавателей.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box400 with dissolve
+
+    show screen center_box400("Именно здесь, между шумным классом №12 и кабинетом системных администраторов, располагалась та самая дверь. Она не была заперта — простая ручка из жёлтого металла лишь притворялась чужой. Но вокруг царила странная пустота: десятки студентов и преподавателей ежедневно проходили мимо, спеша на пары, но ничья рука не тянулась к этой ручке. Кабинет будто висел в слепой зоне общего восприятия — все знали, что он есть, но словно договорились не замечать.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box400 with dissolve
+
+    show screen center_box250("Вы заходите в компьютерный класс. Сплетни об этом месте оказались правдой — здесь царит запустение. Повсюду многовековые слои пыли, а в углах поблёскивает паутина. Кажется, тут давно никого не было...") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box250 with dissolve
+
+    jump room_talking4
+
+label room_talking4:
+    scene bg room 4 with dissolve
+    window hide
+
+    show gg day 1 neutral at left_pos with dissolve
+    show screen down_box("Марк", "#B6544D", "Я слышал об этом месте только в легендах... но не думал, что оно настолько... аутентичное.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show nerd neutral at right_pos with dissolve
+    show screen center_box150("Лев понизив голос, сказал..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Лев", "#B99036", "Помнишь те разговоры в аудитории? Говорили, преподаватель не появлялся здесь с самого открытия корпуса. Найти его — невыполнимая миссия.") with dissolve
+    $ renpy.pause(999.0) 
+    hide screen down_box with dissolve
+
+    show screen center_box250("Присмотревшись, вы замечаете на пыльном ноутбуке жёлтый стикер с аккуратной надписью: «Меня не будет до _____. Если что-то нужно — запустите ноутбук.»") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box250 with dissolve
+
+    hide gg day 1 neutral with dissolve
+    show gg day 1 curious at left_pos with dissolve
+    show screen down_box("Марк", "#B6544D", "Вау... Его не было так долго, что даже дата на листочке стёрлась...") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    hide nerd neutral with dissolve
+    show nerd calm at right_pos with dissolve
+    show screen down_box("Лев", "#B99036", "Ладно, давай запустим эту реликвию. Посмотрим, есть ли тут что-то полезное для нашего проекта.") with dissolve
+    $ renpy.pause(999.0) 
+    hide screen down_box with dissolve
+
+    show screen center_box200("Ноутбук с трудом загружается. Пока система грузится, Лев открывает браузер.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box200 with dissolve
+
+    play movie "images/video/open_macbook.webm"
+    $ renpy.pause(2.0, hard=False)
+    stop movie
+
+    jump open_macbook_room4
+
+label open_macbook_room4:
+    scene bg window_macbook 
+    window hide
+
+    show screen center_box150("Лев прокручивает страницу и говорит..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Лев", "#B99036", "Смотри-ка! Его вживую никто не видел, зато в соцсетях он постит чаще, чем Крылач! Вот, снова онлайн. «Коллеги, вы совсем ошалели? Где бурная имитация деятельности?»") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box150("Марк усмехается и говорит..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Марк", "#B6544D", "Может, он и правда стал чисто цифровой сущностью? Обитает в интернете, а сюда только ноутбук для связи оставил...") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box250("В этот момент экран ноутбука меркнет и гаснет — старый провод питания, давно вышедший из строя, окончательно отходит от розетки.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box250 with dissolve
+
+    jump room_talking4_continue
+
+label room_talking4_continue:
+    scene bg room 4 with dissolve
+    window hide
+
+    show gg day 1 neutral at left_pos with dissolve
+    show screen center_box150("Марк тяжко вздыхает..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Марк", "#B6544D", "Вот отлично... Даже ноутбук здесь как призрак — мелькнул и исчез.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show nerd scared at right_pos with dissolve
+    show screen center_box150("Лев нимательно осматривает ноутбук..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+    show screen down_box("Лев", "#B99036", "Стой... Смотри, какой толстый шлейф у этого старого корпуса. И разъём...") with dissolve
+    $ renpy.pause(999.0)
+    hide nerd sscare with dissolve
+    hide screen down_box with dissolve
+
+    show nerd happy2 at right_pos with dissolve
+    show screen center_box150("Лев поворачивается к Марку с хитрой улыбкой") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+    show screen down_box("Лев", "#B99036", "А не выдрать ли нам его? Твоему андроиду как раз не хватает качественной проводки для силовой цепи") with dissolve
+    $ renpy.pause(999.0)
+    hide gg day 1 neutral with dissolve
+    hide screen down_box with dissolve
+
+    show gg day 1 questioning at left_pos with dissolve
+    show screen center_box150("Марк задумчиво смотрит на ноутубк..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+    show screen down_box("Марк", "#B6544D", "Говоришь... проводка..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+    show screen center_box200("Марк старательно достает провода с ноутбука, перебирая компоненты ноутбука..") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box200
+
+    show provoda at Position(xpos=1000, ypos=1000) with dissolve
+    $ renpy.pause(999.0)
+    hide provoda with dissolve
+    hide gg day 1 questioning with dissolve
+    show gg day 1 happy2 at left_pos with dissolve
+    show screen down_box("Марк", "#B6544D", "Вот я и получил то, что хотел!") with dissolve
+    $ renpy.pause(999.0)
+    hide gg day 1 happy 2 with dissolve
+    hide nerd happy 2 with dissolve
+    hide screen down_box with dissolve   
+
+    jump street_voenmeh
+
+label street_voenmeh:
+    scene street with dissolve 
+    window hide
+
+    show screen center_box400("Утро второго дня начинается с осознанной трансформации. Вчерашний Марк, одетый в аккуратное пальто и темно синие брюки-трубы остался в прошлом. Сегодня его образ кричал о бунте: растрёпанные воздушные волосы, клетчатые штаны и потертая футболка с принтом неизвестной группы . Это не было неряшливостью — каждый элемент тщательно подчеркивал новый альтернативный стиль.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box400 with dissolve
+
+    show gg day 2 neutral at left_pos with dissolve
+    show screen down_box("Марк", "#B6544D", "Пока он перекидывал рюкзак через плечо, к нему подошла девушка. Её образ был выдержан в той же эстетике: чёрная водолазка, потрёпанная косуха , волосы с красными прядями. Но за вызывающим макияжем скрывалось что-то уязвимое и мягкое.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show altushka neutral at right_pos with dissolve
+    show screen down_box("Алиса", "#DA4E8B", "Ничего себе метаморфоза. Вчера – академ, сегодня – андерграунд. Ищешь себя или просто решил выделиться?") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    hide gg day 2 neutral with dissolve
+    show gg day 2 calm at left_pos with dissolve
+    show screen down_box("Марк", "#B6544D", "Просто стало скучно быть предсказуемым. Марк.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box200("Уголок губ Алисы дрогнул в почти незаметной улыбке") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box200 with dissolve
+
+    show screen down_box("Алиса", "#DA4E8B", "Алиса. Что, бунтарю тоже приходится идти на вышмат? Или твой протест распространяется и на высшую математику тоже?") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    hide gg day 2 calm with dissolve
+    show gg day 2 neutral at left_pos with dissolve
+    show screen down_box("Марк", "#B6544D", "Вышмат – это как панк-рок. Сначала кажется бесполезным шумом, пока не поймёшь его гениальную хаотичность. Так что иду добровольно.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    hide altushka neutral with dissolve
+    show altushka happy2 at right_pos with dissolve
+    show screen center_box150("Алиса не может сдержать легкую улыбку") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Алиса", "#DA4E8B", "Ну что ж... Тогда предлагаю объединить силы перед этим хаотичным гением. Вдвоём веселее разбираться в этих математических «риффах».") with dissolve
+    $ renpy.pause(999.0)
+    hide altushka happy2 with dissolve
+    hide gg day 2 neutral with dissolve
+    hide screen down_box with dissolve
+
+    jump room_talking5
+
+label room_talking5:
+    scene bg room 5 with dissolve
+    window hide
+
+    show tarasov neutral at right_pos with dissolve
+    show screen down_box("Тарасов", "#4839BD", "Всем доброе утро. Сегодня пишем контрольную работу. Задания сложные, советую внимательно читать условия.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen center_box150("Тарасов расставляет бумаги на столе с деланной небрежностью") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Тарасов", "#4839BD", "Особое внимание обращайте на задачи с пределами. Именно там большинство из вас совершит ошибку, которая будет напоминать попытку построить мост из песка во время прилива. Очень зрелищно, но абсолютно бесполезно.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    hide tarasov neutral with dissolve
+    show tarasov happy at right_pos with dissolve
+    show screen center_box150("Тарасов смотрит на студентов поверх очков") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Тарасов", "#4839BD", "И да — если вам кажется, что какое-то условие выглядит слишком простым...") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve 
+
+    show screen center_box150("Легкая улыбка тарасова начинает смущать студентов") with dissolve
+    $ renpy.pause(999.0)
+    hide screen center_box150 with dissolve
+
+    show screen down_box("Тарасов", "#4839BD", "...значит, вы уже попались. Внимательность, господа. В математике она ценнее, чем самая яркая вспышка озарения. Приступайте.") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve 
+
+    jump mathexam
 
 image notebook = "images/objects/notebook.png" 
 
@@ -744,6 +1062,49 @@ image xapproachinginf = Text("x->inf",style="limittext")
 image xapproaching0 = Text("x->0",style="limittext")
 
 default correct_answers_list = []
+
+screen answer_input(prompt, varname):
+    modal True
+    zorder 200
+
+    default tmp_value = ""
+
+    frame:
+        at fade_box
+        background Frame("gui/textbox.png", 0, 0)
+        xsize 1500
+        ysize 300
+        xalign 0.5
+        ypos 1050
+        yanchor 1.0
+        padding (40, 40)
+
+        vbox:
+            spacing 20
+
+            text prompt:
+                size 40
+                color "#ffffff"
+                xalign 0.0
+
+            input:
+                value tmp_value
+                length 4
+                allow "-0123456789"
+                pixel_width 300
+
+                color "#FFFFFF"          # ← белый текст
+                bold True                # ← жирный текст
+                size 42                  # ← можешь менять
+                italic False
+                outlines [(2, "#000000", 0, 0)]  # тонкая тень (по желанию)
+
+            textbutton "OK":
+                style "booktext"
+                action Return(tmp_value)
+
+
+
 label mathexam:
 
     $ correct_answers_list = []
@@ -792,46 +1153,59 @@ label mathexam:
         xpos 700 + xunderlimit
         ypos yfirst + 4*yshift + yunderlimit
 
-    $ user_answer1 = renpy.input("Введите ваш результат:",allow="-01234567890",length = 4)
+    # ВВОД 1
+    $ user_answer1 = renpy.call_screen("answer_input", "Введите ответ:", "user_answer1")
     $ answer_on_question = strq1 + user_answer1
-    show image Text("[answer_on_question]",style="booktext") as q1:
+    show image Text("[answer_on_question]", style="booktext") as q1:
         xpos 700
         ypos yfirst
-    
+
     $ correct_answers_list.append(user_answer1.isnumeric() and int(user_answer1) == int_answer1)
 
-    $ user_answer2 = renpy.input("Введите ваш результат:",allow="-01234567890",length = 4)
-    $ answer_on_question  = strq2 + user_answer2
-    show image Text("[answer_on_question]",style="booktext") as q2:
+
+    # ВВОД 2
+    $ user_answer2 = renpy.call_screen("answer_input", "Введите ответ:", "user_answer2")
+    $ answer_on_question = strq2 + user_answer2
+    show image Text("[answer_on_question]", style="booktext") as q2:
         xpos 700
-        ypos yfirst + yshift 
+        ypos yfirst + yshift
 
-    $ correct_answers_list.append(user_answer2.isnumeric() and (int(user_answer2) == int_answer2))
+    $ correct_answers_list.append(user_answer2.isnumeric() and int(user_answer2) == int_answer2)
 
-    $ user_answer3 = renpy.input("Введите ваш результат:",allow="-01234567890",length = 4)
-    $ answer_on_question  = strq3 + user_answer3
-    show image Text("[answer_on_question]",style="booktext") as q3:
+
+    # ВВОД 3
+    $ user_answer3 = renpy.call_screen("answer_input", "Введите ответ:", "user_answer3")
+    $ answer_on_question = strq3 + user_answer3
+    show image Text("[answer_on_question]", style="booktext") as q3:
         xpos 700
-        ypos yfirst + 2*yshift 
-        
-    $ correct_answers_list.append(user_answer3.isnumeric() and (int(user_answer3) == int_answer3))
+        ypos yfirst + 2*yshift
+
+    $ correct_answers_list.append(user_answer3.isnumeric() and int(user_answer3) == int_answer3)
 
 
-    $ user_answer4 = renpy.input("Введите ваш результат:",allow="-01234567890",length = 4)
-    $ answer_on_question  = strq4 + user_answer4
-    show image Text("[answer_on_question]",style="booktext") as q4:
+    # ВВОД 4
+    $ user_answer4 = renpy.call_screen("answer_input", "Введите ответ:", "user_answer4")
+    $ answer_on_question = strq4 + user_answer4
+    show image Text("[answer_on_question]", style="booktext") as q4:
         xpos 700
-        ypos yfirst + 3*yshift 
-        
-    $ correct_answers_list.append(user_answer4.isnumeric() and (int(user_answer4) == int_answer4))
+        ypos yfirst + 3*yshift
 
-    $ user_answer5 = renpy.input("Введите ваш результат:",allow="-01234567890",length = 4)
-    $ answer_on_question  = strq5 + user_answer5
-    show image Text("[answer_on_question]",style="booktext") as q5:
+    $ correct_answers_list.append(user_answer4.isnumeric() and int(user_answer4) == int_answer4)
+
+
+    # ВВОД 5
+    $ user_answer5 = renpy.call_screen("answer_input", "Введите ответ:", "user_answer5")
+    $ answer_on_question = strq5 + user_answer5
+    show image Text("[answer_on_question]", style="booktext") as q5:
         xpos 700
-        ypos yfirst + 4*yshift 
-        
-    $ correct_answers_list.append(user_answer5.isnumeric() and (int(user_answer5) == int_answer5))
+        ypos yfirst + 4*yshift
+
+    $ correct_answers_list.append(user_answer5.isnumeric() and int(user_answer5) == int_answer5)
+
+    show tarasov happy at right_pos with dissolve
+    show screen down_box("Тарасов", "#4839BD", "Ну чтож.. Давайте посмотрим на ваши ответы") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
 
     $ correct_answers_count = sum(correct_answers_list)  
 
@@ -875,6 +1249,35 @@ label mathexam:
 
     "количество правильных ответов: [correct_answers_count]"
     "это тебе не отчёты писать"
+    
+    hide tarasov happy with dissolve
+    show tarasov angry at right_pos with dissolve
+    show screen down_box("Тарасов", "#4839BD", "Количество правильных ответов: [correct_answers_count]") with dissolve
+    $ renpy.pause(999.0)
+    hide screen down_box with dissolve
+
+    show screen down_box("Тарасов", "#4839BD", "Это тебе не отчёты писать! Это высшая математика, мой дорогой друг!") with dissolve
+    $ renpy.pause(999.0)
+    hide tarasov angry with dissolve
+    hide screen down_box with dissolve
+    hide q1 with dissolve
+    hide q2 with dissolve
+    hide q3 with dissolve
+    hide xapproaching0 with dissolve
+    hide q4 with dissolve  
+    hide xapproachinginf with dissolve
+    hide q5 with dissolve  
+    # hide true_answer1 with dissolve
+    # hide true_answer2 with dissolve
+    # hide true_answer3 with dissolve
+    # hide true_answer4 with dissolve
+    # hide true_answer5 with dissolve
+    hide notebook with dissolve
+
+
+
+    
+
     return
 
 default beginpow = "{size=-10}"
